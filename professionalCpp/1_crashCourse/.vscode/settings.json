@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "optional": "cpp"
+    },
+    "editor.formatOnSave": true
+}
