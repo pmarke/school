@@ -41,7 +41,7 @@ void unusedHi([[maybeunused]] int num)
 
 // The depricated attribute tells the user that they can still use the function
 // but its use is discouraged
-[[deprecated]] void deprecatedHi()
+[[deprecated("use new improved function func_name")]] void deprecatedHi()
 {
     std::cout << "deprecated hi" << std::endl;
 }
@@ -67,8 +67,8 @@ enum class Color : unsigned int
 struct Turtles
 {
 
-    int m;
     int d;
+    int m;
     int t;
     int v;
 };
@@ -102,7 +102,7 @@ int main(int, char **)
     int five{5};
 
     // Initializer for if statement. The scope of the initialized variable is the if statment.
-    if (int tmp{4 + 2}; tmp > zero)
+    if (int tmp{4 + 2}, tmp2{2}; tmp > zero)
     {
         std::cout << "if statement initializer: " << tmp << std::endl;
     }
@@ -118,15 +118,16 @@ int main(int, char **)
     }
 
     // get the size of an array and initialize all elements to zero.
-    int myArray[10]{};
+    int myArray[10]{0};
     std::cout << "size of array: " << std::size(myArray) << std::endl;
 
     // Structured binding intialization of a struct.
     // I think this is scary. What if the struct changes or the order changes.
     Turtles turtles{1, 2, 3, 4};
 
-    // Uniform initialization to set all the values to the same one.
+    // Uniform initialization to set all the values to the same one. False!!
     Turtles turtlesUniform{1};
+    Turtles turtlesNotUniform = {1};
 
     /////////////////////////////////
     // Testing attributes
@@ -228,6 +229,8 @@ int main(int, char **)
     std::cout << "big data size: " << bigData.getDataConstRef().size() << std::endl;
     std::cout << "auto data: " << dataRef.size() << std::endl;
 
+    auto& varName = bigData.getDataConstRef();
+
     // for range auto loops
     for (auto i : bigData.getDataConstRef()) {
         //pass
@@ -249,6 +252,12 @@ int main(int, char **)
     char myString[]{"This is a secret Message!"};
     std::string_view strView2(myString,5);
     const char* myString2 = strView2.data();
+    char myCharArray[4];
+    myCharArray[0] ='1';
+    myCharArray[1] ='1';
+    myCharArray[2] ='1';
+    myCharArray[3] ='1';
+    std::string_view strView3(myCharArray,4);
 
     std::cout << strView << std::endl;
     std::cout << strView2 << std::endl;
