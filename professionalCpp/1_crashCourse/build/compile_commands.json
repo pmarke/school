@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/mark/school/professionalCpp/1_crashCourse/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-11 -g -o CMakeFiles/basics.dir/main.cpp.o -c /home/mark/school/professionalCpp/1_crashCourse/main.cpp",
-  "file": "/home/mark/school/professionalCpp/1_crashCourse/main.cpp"
-}
-]
