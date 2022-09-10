@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/mark/school/professionalCpp/2_Strings/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-11 -g -std=gnu++17 -o CMakeFiles/strings.dir/main.cpp.o -c /home/mark/school/professionalCpp/2_Strings/main.cpp",
+  "file": "/home/mark/school/professionalCpp/2_Strings/main.cpp"
+}
+]

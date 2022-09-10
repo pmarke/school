@@ -1,0 +1,20 @@
+Two steps for designing a program:
+1) Analyze the requirements of the application.
+    + Outcome are functional requirements (Explain what it needs to do but not how)
+    + And non-functional requirements (Explain what it should be: secure, modular, portable, etc)
+2) The design phase
+    + Specify the architecture that will fulfill all requirements: Includes two main parts 
+        - The subdivision of the program into subsystems, including interfaces and dependencies between the subsystems, data flow between the subsystems, general threading model.
+        - The details of each subsystem, including subdivision into classes, class hierarchies, data structures, algorithms, a specific threading model, and error-handling specifics.
+
+Two rules for C++ design:
+1) Abstraction
+    + Separation from its internal implementation from its external interfaces.
+    + Use prodecures: a small piece of code that accomplishes a single task. This is better then lumping all code into a single function.
+    + Use objects (classes) to model something.
+    + Enhance readability
+    + Hide implementation details
+2) Reuse
+    + Design code so that it can be modular and used by other applications.
+    + Design your programs so that you can reuse your classes, algorithms, and data structures.
+    + Avoid designing overly specific code that is applicable only to the case at hand!!!!

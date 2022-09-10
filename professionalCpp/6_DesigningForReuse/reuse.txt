@@ -1,0 +1,51 @@
+The reuse philosophy
+- You should design code that both you and other programmers can reuse. This rule applies not only to libraries and frameworks that you specifically intend for other programmers
+    to use, but also to any class, subsystem, or component that you design for a program. You should always keep in mind the mottos:
+    + write once, use often
+    + Avoid code duplication at any cost 
+    + DRY - Don't repeat yourself
+
+JUST GO OVER THE REUSE PHILOSOPHY
+
+How to design reusable code
+- The most important strategy is abstraction. 
+- Seperate the interface from the implementation (We don't want to know about the inner workings of the code)
+- There should be a clear distinction between the interface and the implementation
+- When desigining your interface dont expose implementation details to your clients
+- Abstraction is so important that it should guide your entire design. As part of every decision you make, ask yourself 
+    whether your choice fulfills the principle of abstraction. Put yourself in your clients’ shoes and determine whether 
+    or not you're requiring knowledge of the internal implementation in the interface. You should rarely, if ever, make exceptions to this rule.
+
+Strategies
+1) Avoid combining unrelated or logically sperate concepts (design a component to focus on a single task)
+    a) Divide your programs into logical subsystems (design for low coupling. Two functions should not depend on each other)
+    b) Use class Hierarchies to separate logical concepts
+    c) Use Aggregation to Separate Logical concepts
+    d) Eliminate User Interface dependencies
+2) Use Templates for Generic Data Structures and algorithms
+    a) Whenever possible you should use a generic design for data structures and algorithms instead of encoding specifics of a particular program 
+3) Provide Appropriate Checks and Safeguards
+    a) Design by contract: the documentation for a function or a class represents a contract with detailed description of what the responsibility of the client code is and what
+        the responsibility of the functin or class is. 
+        1) Preconditions: Conditions that the client code must satisfy 
+        2) Postconditioins: The conditions that must be satsified by the function or method 
+        3) Invariants: The conditions that must be satisfied during the whole execution of the function
+    b) Design your functions and classes to be as safe as possible
+        1) This is done by error checking the current state of the system, function parameters, etc. This checking can slow down the program. 
+4) Design for Extensibility 
+    a) You should strive to design your classes in such a way that they can be extended by deriving another class from them, but they should be closed for modification, that is, 
+        the behavior should be extendable without you having to modify its implementation. This is called the Open/Closed Principle (OCP
+5) Design Usable Interfaces 
+6) Design Interfaces That Are Easy To Use 
+    a) Follow Familiar Ways of Doing Things 
+    b) Don't Omit Functionality 
+    c) Present Uncluttered Interfaces ( Don't include every possible piece of functionality imaginable. This can make it hard to figure out how to use the interface.)
+    d) Provide Documentation and Comments 
+7) Design General-Purpose Interfaces 
+    a) Provide Multiple Ways to Perform the Same Functionality 
+    b) Provide Customizability
+8) Reconcile Generality and Ease of Use 
+    a) Supply Mulitple Interfaces 
+    b) Make Common Functionality Easy to Use 
+9) SOLID Principles 
+    a) 

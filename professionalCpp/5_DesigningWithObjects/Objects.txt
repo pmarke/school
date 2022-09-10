@@ -1,0 +1,48 @@
+Classes: They model an object 
+    + Components: Things that make up an object. Ex. An airplane is made up of landing gear, fueselodge, etc..
+    + Properties: These are what distinguish one object from another by having different values.
+    + Behaviors:  Describes what the object can do and what can you do with the object.
+
+Watch out for Overly General Objects, Unecesary objects. 
+
+Two types of object relationships
+1) Has-A relationships  (aggregation relationship)
+    + A has a B or A contains a B 
+2) Is-A Relationship 
+    + deriving, subclassing, extending, and inheriting
+    + A is a B 
+    - adding functionality
+    - replacing functionality 
+    - adding Properties
+    - replacing Properties
+
+Multiple Inheritance critic points:
+1) visualizing multiple inheritance is complicated and harder to understand.
+2) Can destroy clean hierarchiers. 
+3) implementation of mulitple inheritance is complicated. 
+
+Mixin Classes
+1) adds a single behavior to another class. I think this is done via inheritance, but instead of thinking A is a B, think A can do B.
+
+Abstraction
++ The key to abstraction is effectively separating the interface from the implementation.
++ Ihe interface is the collection of publicly accessible properties and methods.
++ A good interface contains only public methods. Properties of a class should never be made public but can be exposed through public methods, also called getters and setters. 
++ When desigining the exposed interface think about what actually needs to be exposed and how it will be used.
++ Think about how easy it is for others to take over or modify your code.
++ Consider the purpose before writing an interface. 
++ The main tradeoff in desigining an API is usually ease of use versus flexibility.
+    - The learning curve to use the interface should be gradual.
+    - An API that has a lot of flexibility and functionality may be too complicated to use.
++ Consider the future
++ All code should be in the implementation file and not in the class definition file.
++ Dont allow external code to manipulate the data behind your class directly.
+    - Instead create your own setters that can perform checks on the input.
++ 
+
+
+
+Notes
+- That access specifiers (public, protected, private), are at the class level not the object level.
+  this means one object of the same class can acess the private properties and methods of another object of the same class. 
+
