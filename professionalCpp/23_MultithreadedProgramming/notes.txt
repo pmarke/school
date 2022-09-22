@@ -1,0 +1,3 @@
+Race Conditions: Occurs when two or more threads are writing/reading to the same memory where at least one thread is writing.
+Tearing: Occurs when a thread has written part of your data to memory while another thread begins to read the data. Or two threads are writing at the same time.
+Deadlocks: Occurs when two threads are waiting for the other thread to do something or release a lock on the data.

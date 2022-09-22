@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mark/school/professionalCpp/23_MultithreadedProgramming/main.cpp
+iostream
+-
+thread
+-
+vector
+-
+mutex
+-
+

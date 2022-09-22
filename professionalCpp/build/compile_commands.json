@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/mark/school/professionalCpp/build/23_MultithreadedProgramming",
+  "command": "/usr/bin/g++-11    -g   -o CMakeFiles/multiThread.dir/main.cpp.o -c /home/mark/school/professionalCpp/23_MultithreadedProgramming/main.cpp",
+  "file": "/home/mark/school/professionalCpp/23_MultithreadedProgramming/main.cpp"
+}
+]

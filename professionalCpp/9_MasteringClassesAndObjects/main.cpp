@@ -102,6 +102,10 @@ class RuleOfFive {
   }
 };
 
+////////////////////////////////////////
+//
+///////////////////////////////////////
+
 class RuleOfZero {
  public:
   RuleOfZero(size_t size, std::string name) : m_name{name}, m_size{size} {
@@ -109,7 +113,7 @@ class RuleOfZero {
   }
 
   int& at(size_t index) {
-    if (index > m_size) {
+    if (index > m_numArray.size()) {
       throw std::out_of_range("Invalid range");
     }
     return m_numArray[index];
@@ -129,6 +133,9 @@ class RuleOfZero {
     }
     return true;
   }
+
+int getSize() {return m_size;}
+int getVecSize(){return m_numArray.size();}
 
  private:
   std::string m_name;
@@ -224,9 +231,16 @@ int main(int, char**) {
   RuleOfZero ruleOfZero5(5, "five");
   ruleOfZero5 = std::move(ruleOfZero4);
   std::cout << "not same: " << (ruleOfZero5 == ruleOfZero4) << std::endl;
+
+  // Primitive types are copied during move symantics. Note the difference in
+  // size.
+  std::cout << "stored size: " << ruleOfZero4.getSize() << std::endl;
+  std::cout << "vector size: " << ruleOfZero4.getVecSize() << std::endl;
+
   try {
     ruleOfZero4.at(1);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
+
 }

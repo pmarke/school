@@ -1,0 +1,1 @@
+/usr/bin/g++-11  -O2 -g -DNDEBUG  -rdynamic CMakeFiles/multiThread.dir/main.cpp.o  -o multiThread  -lpthread 
