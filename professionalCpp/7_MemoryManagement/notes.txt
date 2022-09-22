@@ -1,0 +1,18 @@
+Two types of memory
++ stack 
++ heap 
+
+Dynamic memory is allocated on the heap 
+
+new:
+- Allocates the memory on the heap and returns the object .
+- will throw an exception if there is not enough memory on the heap.
+    + new (nothrow) will not throw an exeption if there is not enough memory, instead it will return a nullptr.
+
+malloc 
+- only allocates the number of bytes
+
+realloc 
+- allocates a new block of memory of the new size, copy all the old data to the new location, and deletes the original block. 
+- DONT USE!! user defined objects do not respond well to bitwise copying.
+
