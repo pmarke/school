@@ -1,0 +1,19 @@
+const pointers  (The const keyword applies to whatever is directly to its left)
+    - const int * ptr      Cant change the value it is pointing to
+    - int const * ptr      Cant change the value it is pointing to
+    - int * const prt      Cant change the address that the pointer is poiting to.
+
+static linkage and anonymous namespaces
+
+
+Casts
+    - const_cast
+        + remove or add the constness
+    - static_cast
+        + explicit conversions
+        + to perform downcast in an inheritance hierarchy
+        + cast a type to another type is the other type has a constructor that uses the initial type.
+    - reinterpret_cast
+        + used to cast one type to another type that may not be related.
+    - dynamic_cast
+        + performs a runtime check on casts within an inheritance hierarchy. 

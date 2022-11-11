@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/mark/school/markovRandomFields/1_basicImageSegmentation/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-11 -DCERES_EXPORT_INTERNAL_SYMBOLS -DGFLAGS_IS_A_DLL=0 -I../inc -isystem /usr/include/opencv4 -isystem /usr/local/include/eigen3 -g -o CMakeFiles/checkerboard.dir/main.cpp.o -c /home/mark/school/markovRandomFields/1_basicImageSegmentation/main.cpp",
+  "file": "/home/mark/school/markovRandomFields/1_basicImageSegmentation/main.cpp"
+},
+{
+  "directory": "/home/mark/school/markovRandomFields/1_basicImageSegmentation/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-11 -DCERES_EXPORT_INTERNAL_SYMBOLS -DGFLAGS_IS_A_DLL=0 -I../inc -isystem /usr/include/opencv4 -isystem /usr/local/include/eigen3 -g -o CMakeFiles/checkerboard.dir/src/PatternGenerator.cpp.o -c /home/mark/school/markovRandomFields/1_basicImageSegmentation/src/PatternGenerator.cpp",
+  "file": "/home/mark/school/markovRandomFields/1_basicImageSegmentation/src/PatternGenerator.cpp"
+},
+{
+  "directory": "/home/mark/school/markovRandomFields/1_basicImageSegmentation/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-11 -DCERES_EXPORT_INTERNAL_SYMBOLS -DGFLAGS_IS_A_DLL=0 -I../inc -isystem /usr/include/opencv4 -isystem /usr/local/include/eigen3 -g -o CMakeFiles/checkerboard.dir/src/Optimizer.cpp.o -c /home/mark/school/markovRandomFields/1_basicImageSegmentation/src/Optimizer.cpp",
+  "file": "/home/mark/school/markovRandomFields/1_basicImageSegmentation/src/Optimizer.cpp"
+}
+]

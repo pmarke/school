@@ -1,0 +1,30 @@
+"The private access specifier gives you control over how a potential derived class could interact with your class. 
+I recommend that you make all your data members private by default. You can provide public getters and setters if 
+you want to allow anyone to access those data members, and you can provide protected getters and setters if you 
+want only derived classes to access them. The reason to make data members private by default is that this provides 
+the highest level of encapsulation. This means that you can change how you represent your data while keeping the 
+public and protected interfaces unchanged. Without giving direct access to data members, you can also easily add 
+checks on the input data in your public and protected setters. Methods should also be private by default. Only
+ make those methods public that are designed to be public, and make methods protected if you want only derived 
+ classes to have access to them."
+
+ Preventing Inheritance using the keyword 'final'. You can also use it to prevent overriding. 
+    - class Base final {};
+
+"As a rule of thumb, make all your methods virtual (including the destructor, but not constructors) to avoid problems associated with omission of the virtual keyword. Note that the compiler-generated destructor is not virtual"
+"Once a method or destructor is marked as virtual, it is virtual for all derived classes even if the virtual keyword is removed from derived classes."
+
+The virtual keyword is used when a base class pointer points to a derived object. If a virtual function is called, then the derived object's function is called instead of the base object's function.
+This is why it is important to have virtual destructor's in the base class. 
+
+Objects don't spring to life all at once; they must be constructed along with their parents and any objects that are contained within them. C++ defines the creation order as follows:
+
+1) If the class has a base class, the default constructor of the base class is executed, unless there is a call to a base class constructor in the ctor-initializer, in which case that constructor is called instead of the default constructor.
+2) Non-static data members of the class are constructed in the order in which they are declared.
+3) The body of the class's constructor is executed.
+
+Downcasting: Cast a base class as a derived class. This should be done using dynamic_cast which can only be used if the base class has at least one virtual function (like the destructor).
+    - Derived* myDerived = dynamic_cast<Derived*>(base);
+    - dynamic_cast will make sure that the casting makes sense.
+
+** Use standard optional to determine if a value has been set or not.
