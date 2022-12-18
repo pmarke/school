@@ -1,0 +1,13 @@
+
+If you implement operator == and operator < in your class, you get the other relational operators for free with these templates. YOu can make these available for your class
+by simply adding #include <utility> and adding the following using statement: using namespace std::rel_ops.
+    Note: Author recommends that you jut implement all relational operators for a class yourself instead of relying on std::rel_ops. 
+
+https://en.cppreference.com/w/cpp/language/operators
+
+
+OPERATOR NEW AND DELETE
+
+When you define an operator new with extra parameters, you should also define the corresponding operator delete 
+with the same extra parameters. You cannot call this operator delete with extra parameters yourself, but it
+will be called only when you use your operator new with extra parameters and the constructor of your object throws an exception.

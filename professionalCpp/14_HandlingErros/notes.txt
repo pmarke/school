@@ -1,0 +1,21 @@
+Exceptions provide an easier, more consistent, and safer mechanism for error handling. There are several specific advantages of exceptions over the ad hoc approaches in C and C++
+    1) When return codes are used as an error reporting mechanism, you might forget to check the return code and properly handle it either locally or by propagating it upward. 
+    2) When integer return codes are used, they generally do not contain sufficient information. You can use exceptions to pass as much information as you want from the code.
+    3) Exception handling can skip levels of the call stack. That is, a function can handle an error that occured several function calls down the stack
+
+For most modern compilers there is a trade-off in that there is almost no overhead in the non-throwing case, and only some slight overhead when you actually throw something.
+This trade-off is not a bad thing because throwing an exception should be exceptional. 
+
+Always catch exception objects by const reference! This avoids object slicing, which could happen when you catch exception objects by value.
+
+You can catch exceptions polymorphically. (i.e. you can catch an exception using a reference to its parent class.)
+
+Objects thrown by exceptions are always moved or copied at least once. This means that the objects must be copyable and/or moveable. 
+    * This may mean that they should be small. 
+
+You can rethrow an exception by using "throw"
+
+If an exception leaves a constructor, the destructor for that object will never be called! Thus, you must be careful to clean up any resources and free any allocated memory 
+in constructors before allowing exceptions to leave the constructors.
+
+You should handle all error conditions that arise in destructors in the destructors themselves. You should not let any exceptions be thrown from destructors.
