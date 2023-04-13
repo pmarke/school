@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/mark/school/professionalCpp/26_BecomingAdeptAtTesting/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-11 -g -o CMakeFiles/testing.dir/main.cpp.o -c /home/mark/school/professionalCpp/26_BecomingAdeptAtTesting/main.cpp",
+  "file": "/home/mark/school/professionalCpp/26_BecomingAdeptAtTesting/main.cpp"
+}
+]
