@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/mark/school/professionalCpp/29_ApplyingDesignPatterns/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-10 -I../inc -g -o CMakeFiles/designPatterns.dir/main.cpp.o -c /home/mark/school/professionalCpp/29_ApplyingDesignPatterns/main.cpp",
+  "file": "/home/mark/school/professionalCpp/29_ApplyingDesignPatterns/main.cpp"
+}
+]
