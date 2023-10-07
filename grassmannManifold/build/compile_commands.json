@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/mark/school/grassmannManifold/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-10 -isystem /usr/local/include/eigen3 -g -o CMakeFiles/grassmann.dir/src/main.cpp.o -c /home/mark/school/grassmannManifold/src/main.cpp",
+  "file": "/home/mark/school/grassmannManifold/src/main.cpp"
+}
+]
