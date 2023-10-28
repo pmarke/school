@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/mark/school/professionalCpp20/newFeatures/build",
+  "command": "/usr/bin/g++ -I../inc -g -std=gnu++2a -o CMakeFiles/newFeatures.dir/main.cpp.o -c /home/mark/school/professionalCpp20/newFeatures/main.cpp",
+  "file": "/home/mark/school/professionalCpp20/newFeatures/main.cpp"
+}
+]

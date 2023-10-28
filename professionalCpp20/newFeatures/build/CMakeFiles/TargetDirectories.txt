@@ -1,0 +1,5 @@
+/home/mark/school/professionalCpp20/newFeatures/build/CMakeFiles/edit_cache.dir
+/home/mark/school/professionalCpp20/newFeatures/build/CMakeFiles/package_source.dir
+/home/mark/school/professionalCpp20/newFeatures/build/CMakeFiles/rebuild_cache.dir
+/home/mark/school/professionalCpp20/newFeatures/build/CMakeFiles/package.dir
+/home/mark/school/professionalCpp20/newFeatures/build/CMakeFiles/newFeatures.dir

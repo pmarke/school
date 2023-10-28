@@ -1,9 +1,15 @@
+#include <algorithm>
 #include <array>
 #include <compare>
+#include <concepts.hpp>
 #include <format>
 #include <iostream>
 #include <numbers>
+#include <ranges>
+#include <source_location>
 #include <string>
+#include <utility>
+#include <vector>
 
 void threeWayComparisonInt(int val1, int val2) {
   std::strong_ordering result = val1 <=> val2;
@@ -63,6 +69,23 @@ class MyComparisonClass {
 
 decltype(auto) addNumbers(const auto& val1, const auto& val2) {
   return val1 + val2;
+}
+
+// source location
+void logMessage(std::string_view msg, const std::source_location& location =
+                                          std::source_location::current()) {
+  std::cout << std::format(
+      "File Name: {}, Function Name {}, Line Number: {}, Msg: {}\n",
+      location.file_name(), location.function_name(), location.line(), msg);
+}
+
+// print ranges
+void printRanges(std::string_view msg, auto& range) {
+  std::cout << msg;
+  for (const auto& val : range) {
+    std::cout << val << " ";
+  }
+  std::cout << std::endl;
 }
 
 int main(int, char**) {
@@ -133,4 +156,50 @@ int main(int, char**) {
   std::cout << std::endl << "abreviated function template" << std::endl;
   std::cout << addNumbers(1, 1.0) << std::endl;
   std::cout << addNumbers(2.0, 1.0) << std::endl;
+
+  // Concepts
+  std::cout << "Concepts: " << std::endl;
+  std::string strHi{"hi"};
+  // Incrementable auto value1{strHi}; // not valid
+  Incrementable auto value1{1};
+  Class1<int> conceptInt;
+  // Class1<std::string> conceptString;  // not valid;
+
+  // function overloading
+  process(int(1));
+  process(short(1));
+
+  std::cout << "log messages: " << std::endl;
+  logMessage("This is a message");
+
+  // comparison of mixed types
+  std::cout << (-1 > 0u) << std::endl;  // incorrectly returns true
+  std::cout << std::cmp_greater(-1, 0u) << std::endl;
+
+  // ranges
+  // It is a concept that requires the object to have T::begin() and T::end()
+  // Ranges support projection which is a function applied to each element in
+  // the container before it is given to the algorithm.
+  std::cout << "ranges" << std::endl;
+  std::vector<int> rangeData{5, 3, 6, -8, 7, -9, 1, 2};
+  std::sort(std::begin(rangeData), std::end(rangeData));
+  for (auto& val : rangeData) {
+    std::cout << val;
+  }
+  std::cout << std::endl;
+  // or using a projection
+  std::ranges::sort(rangeData, {}, [](const int val) { return val * val; });
+  for (auto& val : rangeData) {
+    std::cout << val;
+  }
+  std::cout << std::endl;
+
+  // Views can be created using range adapters.
+  // They are not evaluated when constructed.
+  auto result1{rangeData |
+               std::views::filter([](const auto& val) { return val > 0; })};
+  printRanges("filter positive", result1);
+  auto result2{result1 | std::views::transform(
+                             [](const auto& val) { return val * val; })};
+  printRanges("squared", result2);
 }
