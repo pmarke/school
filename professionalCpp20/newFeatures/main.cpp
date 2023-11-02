@@ -7,6 +7,7 @@
 #include <numbers>
 #include <ranges>
 #include <source_location>
+#include <span>
 #include <string>
 #include <utility>
 #include <vector>
@@ -83,6 +84,13 @@ void logMessage(std::string_view msg, const std::source_location& location =
 void printRanges(std::string_view msg, auto& range) {
   std::cout << msg;
   for (const auto& val : range) {
+    std::cout << val << " ";
+  }
+  std::cout << std::endl;
+}
+
+void printSpan(std::span<int> values) {
+  for (const auto& val : values) {
     std::cout << val << " ";
   }
   std::cout << std::endl;
@@ -202,4 +210,22 @@ int main(int, char**) {
   auto result2{result1 | std::views::transform(
                              [](const auto& val) { return val * val; })};
   printRanges("squared", result2);
+
+  // Span
+  // Contains a pointer to the first element and the number of elements
+  // used with std::vector, std::array, and c-style array
+  std::vector<int> vectorSpan{1, 2, 3, 4, 5};
+  std::array<int, 5> arraySpan{1, 2, 3, 4, 5};
+  int cArraySpan[] = {1, 2, 3, 4, 5};
+  printSpan(std::span(vectorSpan));
+  printSpan(std::span(arraySpan));
+  printSpan(std::span(cArraySpan));
+
+  // Templated lambda functions
+
+  auto lambda = []<typename T>(const T& val) {
+    std::cout << "templated lambda function val: " << val << std::endl;
+  };
+  lambda(5);
+  lambda("hi");
 }
