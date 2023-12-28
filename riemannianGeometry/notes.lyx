@@ -1,0 +1,832 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass IEEEtran
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Notation
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\frac{\partial}{\partial x^{i}}$
+\end_inset
+
+ form a basis of a vector field and 
+\begin_inset Formula $f\in C^{\infty}$
+\end_inset
+
+
+\begin_inset Formula $\left(M\right)$
+\end_inset
+
+.
+ The directional derivative or Jacobian is.
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial x^{i}}\left(f\right)=\frac{\partial f}{\partial x^{i}}\frac{\partial}{\partial x^{i}}=F^{i}\frac{\partial}{\partial x^{i}}.
+\]
+
+\end_inset
+
+The second partial derivative is 
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial x^{j}}\left(F^{i}\frac{\partial}{\partial x^{i}}\right)=\frac{F^{i}}{\partial x^{j}}\frac{\partial}{\partial x^{j}}\frac{\partial}{\partial x^{i}}=F^{ij}\frac{\partial}{\partial x^{j}}\frac{\partial}{\partial x^{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Frame Transformation
+\end_layout
+
+\begin_layout Standard
+In this note we will use the transformation between Cartesian and polar
+ coordinates.
+ The transformation is 
+\begin_inset Formula 
+\begin{align*}
+\left(r,\theta\right) & =\left(\sqrt{x_{1}^{2}+x_{2}^{2}},\arctan\left(x_{2}/x_{1}\right)\right)\\
+\begin{bmatrix}\frac{\partial r}{\partial x}\\
+\frac{\partial\theta}{\partial x}
+\end{bmatrix}= & \begin{bmatrix}\frac{x_{1}}{\sqrt{x_{1}^{2}+x_{2}^{2}}} & \frac{x_{2}}{\sqrt{x_{1}^{2}+x_{2}^{2}}}\\
+\frac{-x_{2}}{x_{1}^{2}+x_{2}^{2}} & \frac{x_{1}}{x_{1}^{2}+x_{2}^{2}}
+\end{bmatrix}\begin{bmatrix}\partial x_{1}\\
+\partial x_{2}
+\end{bmatrix}=J=\begin{bmatrix}\cos\theta & \sin\theta\\
+\frac{-\sin\theta}{r} & \frac{\cos\theta}{r}
+\end{bmatrix},
+\end{align*}
+
+\end_inset
+
+with 
+\begin_inset Formula $J$
+\end_inset
+
+ denoting the Jacobian.
+ The inverse Jacobian is 
+\begin_inset Formula 
+\[
+J^{-1}=\begin{bmatrix}\frac{x_{1}}{\sqrt{x_{1}^{2}+x_{2}^{2}}} & -x_{2}\\
+\frac{x_{2}}{\sqrt{x_{1}^{2}+x_{2}^{2}}} & x_{1}
+\end{bmatrix}=\begin{bmatrix}\cos\theta & -r\sin\theta\\
+\sin\theta & r\cos\theta
+\end{bmatrix}.
+\]
+
+\end_inset
+
+Using the Jacobian and its inverse, we can compute the induced metric in
+ polar coordinates and a mixed metrix.
+ Let 
+\begin_inset Formula $v$
+\end_inset
+
+ be a vector represented in cartesian coordinates as 
+\begin_inset Formula 
+\[
+v=v^{1}e_{1}+v^{2}e_{2}
+\]
+
+\end_inset
+
+and in polar coordinates as 
+\begin_inset Formula 
+\[
+v=\tilde{v}^{1}\tilde{e}_{1}+\tilde{v}^{2}\tilde{e}_{2},
+\]
+
+\end_inset
+
+with each basis being orthogonal.
+ The metric in cartesian, polar coordinates, and mixed coordinates is 
+\begin_inset Formula 
+\begin{align*}
+g & =de_{1}\otimes de_{1}+de_{2}\otimes de_{2}\\
+\tilde{g} & =d\tilde{e}_{1}\otimes d\tilde{e}_{1}+r^{2}d\tilde{e}_{2}\otimes d\tilde{e}_{2}\\
+g_{m} & =\cos\theta d\tilde{e}_{1}\otimes de_{1}+\sin\theta d\tilde{e}_{1}\otimes de_{2}-r\sin\theta d\tilde{e}_{2}\otimes de_{1}+r\cos\theta d\tilde{e}_{2}\otimes de_{2},
+\end{align*}
+
+\end_inset
+
+Note that the induced metrix in polar coordinates shows that the basis vectors
+ are orthogonal but not orthonomal due to the coefficied 
+\begin_inset Formula $r^{2}$
+\end_inset
+
+ with the term 
+\begin_inset Formula $d\tilde{e}_{2}\otimes d\tilde{e}_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Equating the vector in each frame gives us.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+v^{1}e_{1}+v^{2}e_{2} & =\tilde{v}^{1}\tilde{e}_{1}+\tilde{v}^{2}\tilde{e}_{2}\\
+\begin{bmatrix}\tilde{v}^{1}\\
+\tilde{v}^{2}
+\end{bmatrix} & =\begin{bmatrix}e_{1}\cdot\tilde{e}_{1} & e_{2}\cdot\tilde{e}_{1}\\
+e_{1}\cdot\tilde{e}_{2} & e_{2}\cdot\tilde{e}_{2}
+\end{bmatrix}\begin{bmatrix}v^{1}\\
+v^{2}
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the metric tensor and applying the dot product (applying the metric)
+ of each basis vector yields the equations 
+\begin_inset Formula 
+\begin{align*}
+v^{1}e_{1}\cdot\tilde{e}_{1}+v^{2}e_{2}\cdot\tilde{e}_{1} & =\tilde{v}^{1}\tilde{e}_{1}\cdot\tilde{e}_{1}+\tilde{v}^{2}\tilde{e}_{2}\cdot\tilde{e}_{1}\\
+v^{1}e_{1}\cdot\tilde{e}_{1}+v^{2}e_{2}\cdot\tilde{e}_{1} & =\tilde{v}^{1}\\
+v^{1}e_{1}\cdot\tilde{e}_{2}+v^{2}e_{2}\cdot\tilde{e}_{2} & =\tilde{v}^{1}\tilde{e}_{1}\cdot\tilde{e}_{2}+\tilde{v}^{2}\tilde{e}_{2}\cdot\tilde{e}_{2}\\
+v^{1}e_{1}\cdot\tilde{e}_{2}+v^{2}e_{2}\cdot\tilde{e}_{2} & =\tilde{v}^{2}r^{2}
+\end{align*}
+
+\end_inset
+
+In matrix notation we get 
+\begin_inset Formula 
+\begin{align*}
+\begin{bmatrix}\tilde{v}^{1}\\
+\tilde{v}^{2}
+\end{bmatrix} & =\begin{bmatrix}e_{1}\cdot\tilde{e}_{1} & e_{2}\cdot\tilde{e}_{1}\\
+\frac{1}{r^{2}}e_{1}\cdot\tilde{e}_{2} & \frac{1}{r^{2}}e_{2}\cdot\tilde{e}_{2}
+\end{bmatrix}\begin{bmatrix}v^{1}\\
+v^{2}
+\end{bmatrix}\\
+\begin{bmatrix}\tilde{v}^{1}\\
+\tilde{v}^{2}
+\end{bmatrix} & =\underbrace{\begin{bmatrix}\cos\theta & \sin\theta\\
+\frac{-\sin\theta}{r} & \frac{\cos\theta}{r}
+\end{bmatrix}}_{J}\begin{bmatrix}v^{1}\\
+v^{2}
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+Using the mixed inner product, we can get a basis transform as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{bmatrix}\tilde{e}_{1}\\
+\tilde{e}_{2}
+\end{bmatrix}=\underbrace{\begin{bmatrix}\cos\theta & \sin\theta\\
+-r\sin\theta & r\cos\theta
+\end{bmatrix}}_{A}\begin{bmatrix}e_{1}\\
+e_{2}
+\end{bmatrix}
+\]
+
+\end_inset
+
+Note that the cange of basis matrix representation 
+\begin_inset Formula $A$
+\end_inset
+
+ is 
+\begin_inset Formula $A=\left(J^{-1}\right)^{\top}$
+\end_inset
+
+ and not just the inverse of the Jacobian.
+ 
+\end_layout
+
+\begin_layout Section
+Connection in the Tangent Bundle
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a smooth manifold and 
+\begin_inset Formula $\mathfrak{X}\left(M\right)$
+\end_inset
+
+ the set of smooth vector fields on 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ A 
+\series bold
+connection
+\series default
+ 
+\series bold
+in 
+\begin_inset Formula $M$
+\end_inset
+
+
+\series default
+ is a map
+\begin_inset Formula 
+\[
+\nabla:\mathfrak{X}\left(M\right)\times\mathfrak{X}\left(M\right)\to\mathfrak{X}\left(M\right),
+\]
+
+\end_inset
+
+written 
+\begin_inset Formula $\left(X,Y\right)\mapsto\nabla_{X}Y$
+\end_inset
+
+, satisfying the following properties:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\nabla_{X}Y$
+\end_inset
+
+ is linear over 
+\begin_inset Formula $C^{\infty}\left(M\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $X$
+\end_inset
+
+: for 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+,
+\begin_inset Formula $f_{2}\in C^{\infty}\left(M\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{1},X_{2}\in\mathfrak{X}\left(M\right)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\nabla_{f_{1}X_{1}+f_{2}X_{2}}Y=\nabla_{f_{1}X_{1}}Y+\nabla_{f_{2}X_{2}}Y.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\nabla_{X}Y$
+\end_inset
+
+ is linear over 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ in 
+\begin_inset Formula $Y$
+\end_inset
+
+: for 
+\begin_inset Formula $a_{1},a_{2}\in\mathbf{\mathbb{R}}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{1},Y_{2}\in\mathfrak{X}\left(M\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nabla_{X}\left(a_{1}Y_{1}+a_{2}Y_{2}\right)=a_{1}\nabla_{X}Y_{1}+a_{2}\nabla_{X}Y_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $f\in C^{\infty}\left(M\right)$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\nabla_{X}f=X\left(f\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\nabla$
+\end_inset
+
+ satisfies the product rule: for 
+\begin_inset Formula $f\in C^{\infty}\left(M\right)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\nabla_{X}\left(fY\right)=f\nabla_{X}Y+\left(Xf\right)Y.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Basis
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ for a basis in 
+\begin_inset Formula $\mathfrak{X}\left(m\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $X=x^{i}E_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y=y^{i}E_{i}$
+\end_inset
+
+ where 
+\begin_inset Formula $x^{i},y^{i}\in C^{\infty}\left(M\right)$
+\end_inset
+
+, then the connection has the form 
+\begin_inset Formula 
+\begin{align}
+\nabla_{X}Y & =\nabla_{x^{i}E_{i}}y^{j}E_{j}\label{eq:connectionBasis}\\
+ & =x^{i}\nabla_{E_{i}}y^{j}E_{j}\nonumber \\
+ & =x^{i}\left(E_{i}\left(y^{j}\right)E_{j}+y^{j}\nabla_{E_{i}}E_{j}\right)\nonumber \\
+ & =x^{i}E_{i}\left(y^{j}\right)E_{j}+x^{i}y^{j}\nabla_{E_{i}}E_{j}\nonumber \\
+ & =\left(X\left(y^{k}\right)+x^{i}y^{i}\Gamma_{ij}^{k}\right)E_{k},\nonumber 
+\end{align}
+
+\end_inset
+
+where the connection coefficients or Christoffel symbol 
+\begin_inset Formula $\Gamma_{ij}^{k}=\nabla_{E_{i}}E_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $X\left(y^{k}\right)$
+\end_inset
+
+ is the directional derivative of 
+\begin_inset Formula $y^{k}$
+\end_inset
+
+ in the direction of 
+\begin_inset Formula $X$
+\end_inset
+
+ at a point 
+\begin_inset Formula $m\in M$
+\end_inset
+
+.
+ The Christoffel terms 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ in Riemannian Geometry is used to capture curvature, they are also not
+ chart independent.
+ 
+\end_layout
+
+\begin_layout Subsection
+Transformation Law for Connection Coefficients
+\end_layout
+
+\begin_layout Standard
+Suppose we are given two smooth local frames 
+\begin_inset Formula $\left\{ E_{i}\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ E_{j}\right\} $
+\end_inset
+
+ for TM on an open subset related by 
+\begin_inset Formula $\tilde{E}=AE$
+\end_inset
+
+ and each basis related by 
+\begin_inset Formula $\tilde{E}_{i}=A_{i}^{j}E_{j}$
+\end_inset
+
+, where 
+\begin_inset Formula $A_{i}^{j}\in C^{\infty}\left(M\right)$
+\end_inset
+
+.
+ Recall that basis vectors transform contravariantly (i.e.
+ uses the inverse covariant transform).
+ Using 
+\begin_inset Formula $A$
+\end_inset
+
+, we can transform equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:connectionBasis"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ from frame 
+\begin_inset Formula $E$
+\end_inset
+
+ to frame 
+\begin_inset Formula $\tilde{E}$
+\end_inset
+
+.
+ With substitution we get 
+\begin_inset Formula 
+\begin{align*}
+\nabla_{\tilde{E}_{i}}\tilde{E}_{j} & =\nabla_{A_{i}^{a}E_{a}}A_{j}^{b}E_{b}\\
+ & =A_{i}^{a}\nabla_{E_{a}}A_{j}^{b}E_{b}\\
+ & =A_{i}^{a}E_{a}\left(A_{j}^{b}\right)E_{b}+A_{i}^{a}A_{j}^{b}\nabla_{E_{a}}E_{b}\\
+ & =A_{i}^{a}E_{a}\left(A_{j}^{k}\right)E_{k}+A_{i}^{a}A_{j}^{b}\Gamma_{ab}^{k}E_{k}\\
+ & =\left(A_{i}^{a}E_{a}\left(A_{j}^{k}\right)+A_{i}^{a}A_{j}^{b}\Gamma_{ab}^{k}\right)E_{k}\\
+ & =\left(A_{i}^{a}E_{a}\left(A_{j}^{k}\right)+A_{i}^{a}A_{j}^{b}\Gamma_{ab}^{k}\right)\left(A^{-1}\right)_{k}^{p}\tilde{E}_{p}\\
+ & =\left(A^{-1}\right)_{k}^{p}\left(A_{i}^{a}E_{a}\left(A_{j}^{k}\right)+A_{i}^{a}A_{j}^{b}\Gamma_{ab}^{k}\right)\tilde{E}_{p}.
+\end{align*}
+
+\end_inset
+
+therefore, with change to superscript and subscripts, 
+\begin_inset Formula 
+\begin{equation}
+\tilde{\Gamma}_{ij}^{k}=\left(A^{-1}\right)_{p}^{k}\left(A_{i}^{a}E_{a}\left(A_{j}^{p}\right)+A_{i}^{a}A_{j}^{b}\Gamma_{ab}^{p}\right).\label{eq:connectionTransformation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note how the first term takes into account the derivatives of the transformation
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ which captures how the basis vectors change from point to point.
+ For example, in polar coordinates the basis vectors change; thus, the coefficie
+nts must change in the opposite manner to stay the same vector.
+ The first term could also be written as 
+\begin_inset Formula 
+\[
+\tilde{\Gamma}_{ij}^{k}=\left(A^{-1}\right)_{p}^{k}\left(\tilde{E}_{i}\left(A_{j}^{p}\right)+A_{i}^{a}A_{j}^{b}\Gamma_{ab}^{p}\right),
+\]
+
+\end_inset
+
+using the fact that 
+\begin_inset Formula 
+\[
+\tilde{E}_{i}=A_{i}^{a}E_{a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Euclidean Example
+\end_layout
+
+\begin_layout Standard
+Without going into detail, we will apply the transformation law on 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ using cartesian and polar coordinates where in cartesian coordinates the
+ connection coefficients are all zero.
+ Recalling the Jacobian and the basis transform is 
+\begin_inset Formula 
+\begin{align*}
+J & =\begin{bmatrix}\cos\theta & \sin\theta\\
+\frac{-\sin\theta}{r} & \frac{\cos\theta}{r}
+\end{bmatrix}\\
+A & =\begin{bmatrix}\cos\theta & \sin\theta\\
+-r\sin\theta & r\cos\theta
+\end{bmatrix}\\
+A^{-1} & =\begin{bmatrix}\cos\theta & \frac{-\sin\theta}{r}\\
+\sin\theta & \frac{\cos\theta}{r}
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+with their respective derivatives being
+\begin_inset Formula 
+\[
+H_{1}=\begin{bmatrix}\frac{\partial J_{1}^{1}}{\partial x_{1}} & \frac{\partial J_{1}^{1}}{\partial x_{2}}\\
+\frac{\partial J_{1}^{2}}{\partial x_{1}} & \frac{\partial J_{1}^{2}}{\partial x_{2}}
+\end{bmatrix}=\begin{bmatrix}H_{1}^{11} & H_{1}^{12}\\
+H_{1}^{21} & H_{1}^{22}
+\end{bmatrix}=\begin{bmatrix}\frac{x_{2}^{2}}{\left(x_{1}^{2}+x_{2}^{2}\right)^{3/2}} & \frac{-x_{1}x_{2}}{\left(x_{1}^{2}+x_{2}^{2}\right)^{3/2}}\\
+\frac{-x_{1}x_{2}}{\left(x_{1}^{2}+x_{2}^{2}\right)^{3/2}} & \frac{x_{1}^{2}}{\left(x_{1}^{2}+x_{2}^{2}\right)^{3/2}}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{2}=\begin{bmatrix}\frac{\partial J_{2}^{1}}{\partial x_{1}} & \frac{\partial J_{2}^{1}}{\partial x_{2}}\\
+\frac{\partial J_{2}^{2}}{\partial x_{1}} & \frac{\partial J_{2}^{2}}{\partial x_{2}}
+\end{bmatrix}=\begin{bmatrix}H_{2}^{11} & H_{2}^{12}\\
+H_{2}^{21} & H_{2}^{22}
+\end{bmatrix}=\begin{bmatrix}\frac{2x_{1}x_{2}}{\left(x_{1}^{2}+x_{2}^{2}\right)^{2}} & \frac{x_{2}^{2}-x_{1}^{2}}{\left(x_{1}^{2}+x_{2}^{2}\right)^{2}}\\
+\frac{x_{2}^{2}-x_{1}^{2}}{\left(x_{1}^{2}+x_{2}^{2}\right)^{2}} & \frac{-2x_{1}x_{2}}{\left(x_{1}^{2}+x_{2}^{2}\right)^{2}}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+T_{1}=\begin{bmatrix}\frac{\partial A_{1}^{1}}{\partial r} & \frac{\partial A_{1}^{1}}{\partial\theta}\\
+\frac{\partial A_{1}^{2}}{\partial r} & \frac{\partial A_{1}^{2}}{\partial\theta}
+\end{bmatrix}=\begin{bmatrix}T_{1}^{1r} & T_{1}^{1\theta}\\
+T_{1}^{2r} & T_{1}^{2\theta}
+\end{bmatrix}=\begin{bmatrix}0 & -\sin\theta\\
+0 & \cos\theta
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T_{1}=\begin{bmatrix}\frac{\partial A_{2}^{1}}{\partial r} & \frac{\partial A_{2}^{1}}{\partial\theta}\\
+\frac{\partial A_{2}^{2}}{\partial r} & \frac{\partial A_{2}^{2}}{\partial\theta}
+\end{bmatrix}=\begin{bmatrix}T_{2}^{1r} & T_{2}^{1\theta}\\
+T_{2}^{2r} & T_{2}^{2\theta}
+\end{bmatrix}=\begin{bmatrix}-\sin\theta & -r\cos\theta\\
+\cos\theta & -r\sin\theta
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\end_layout
+
+\begin_layout Standard
+Using the Jacobian and the connection coefficient transformation equation
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:connectionTransformation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we get 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tilde{\Gamma}_{ij}^{k}=\left(A^{-1}\right)_{p}^{k}\left(\tilde{E}_{i}\left(A_{j}^{p}\right)+A_{i}^{a}A_{j}^{b}\Gamma_{ab}^{p}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{11}^{1} & =\left(A^{-1}\right)_{1}^{1}\left(A_{1}^{1}\frac{\partial}{\partial x_{1}}\left(A_{1}^{1}\right)+A_{1}^{2}\frac{\partial}{\partial x_{2}}\left(A_{1}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{1}\left(A_{1}^{1}\frac{\partial}{\partial x_{1}}\left(A_{1}^{2}\right)+A_{1}^{2}\frac{\partial}{\partial x_{2}}\left(A_{1}^{2}\right)\right)\\
+ & =\left(A^{-1}\right)_{1}^{1}\left(\frac{\partial}{\partial r}\left(A_{1}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{1}\left(\frac{\partial}{\partial r}\left(A_{1}^{2}\right)\right)\\
+ & =\left(A^{-1}\right)_{1}^{1}\left(T_{1}^{1r}\right)+\left(A^{-1}\right)_{2}^{1}\left(T_{1}^{2r}\right)\\
+ & =\begin{bmatrix}\left(A^{-1}\right)_{1}^{1} & \left(A^{-1}\right)_{2}^{1}\end{bmatrix}\begin{bmatrix}T_{1}^{1r}\\
+T_{1}^{2r}
+\end{bmatrix}\\
+ & =\begin{bmatrix}\cos\theta & \sin\theta\end{bmatrix}\begin{bmatrix}0\\
+0
+\end{bmatrix}\\
+ & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{12}^{1}=\Gamma_{21}^{1} & =\left(A^{-1}\right)_{1}^{1}\left(A_{1}^{1}\frac{\partial}{\partial x_{1}}\left(A_{2}^{1}\right)+A_{1}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{1}\left(A_{1}^{1}\frac{\partial}{\partial x_{1}}\left(A_{2}^{2}\right)+A_{1}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{2}\right)\right)\\
+ & =\left(A^{-1}\right)_{1}^{1}\left(\frac{\partial}{\partial r}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{1}\left(\frac{\partial}{\partial r}\left(A_{2}^{2}\right)\right)\\
+ & =\begin{bmatrix}\left(A^{-1}\right)_{1}^{1} & \left(A^{-1}\right)_{2}^{1}\end{bmatrix}\begin{bmatrix}T_{2}^{1r}\\
+T_{2}^{2r}
+\end{bmatrix}\\
+ & =\begin{bmatrix}\cos\theta & \sin\theta\end{bmatrix}\begin{bmatrix}-\sin\theta\\
+\cos\theta
+\end{bmatrix}\\
+ & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{22}^{1} & =\left(A^{-1}\right)_{1}^{1}\left(A_{2}^{1}\frac{\partial}{\partial x_{1}}\left(A_{2}^{1}\right)+A_{2}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{1}\left(A_{2}^{1}\frac{\partial}{\partial x_{1}}\left(A_{2}^{2}\right)+A_{2}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{2}\right)\right)\\
+ & =\left(A^{-1}\right)_{1}^{1}\left(\frac{\partial}{\partial\theta}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{1}\left(\frac{\partial}{\partial\theta}\left(A_{2}^{2}\right)\right)\\
+ & =\begin{bmatrix}\left(A^{-1}\right)_{1}^{1} & \left(A^{-1}\right)_{2}^{1}\end{bmatrix}\begin{bmatrix}T_{2}^{1\theta}\\
+J_{2}^{2\theta}
+\end{bmatrix}\\
+ & =\begin{bmatrix}\cos\theta & \sin\theta\end{bmatrix}\begin{bmatrix}-r\cos\theta\\
+-r\sin\theta
+\end{bmatrix}\\
+ & =-r
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{11}^{2} & =\left(A^{-1}\right)_{1}^{2}\left(A_{1}^{1}\frac{\partial}{\partial x_{1}}\left(A_{1}^{1}\right)+A_{1}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{2}\left(A_{1}^{1}\frac{\partial}{\partial x_{1}}\left(A_{1}^{2}\right)+A_{1}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{2}\right)\right)\\
+ & =\left(A^{-1}\right)_{1}^{2}\left(\frac{\partial}{\partial r}\left(A_{1}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{2}\left(\frac{\partial}{\partial r}\left(A_{1}^{2}\right)\right)\\
+ & =\begin{bmatrix}\left(A^{-1}\right)_{1}^{2} & \left(A^{-1}\right)_{2}^{2}\end{bmatrix}\begin{bmatrix}T_{1}^{1r}\\
+T_{1}^{2r}
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{-\sin\theta}{r} & \frac{\cos\theta}{r}\end{bmatrix}\begin{bmatrix}0\\
+0
+\end{bmatrix}\\
+ & =0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{12}^{2} & =\left(A^{-1}\right)_{1}^{2}\left(A_{1}^{1}\frac{\partial}{\partial x_{1}}\left(A_{2}^{1}\right)+A_{1}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{2}\left(A_{1}^{1}\frac{\partial}{\partial x_{1}}\left(A_{2}^{2}\right)+A_{1}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{2}\right)\right)\\
+ & =\left(A^{-1}\right)_{1}^{2}\left(\frac{\partial}{\partial r}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{2}\left(\frac{\partial}{\partial r}\left(A_{2}^{2}\right)\right)\\
+ & =\begin{bmatrix}\left(A^{-1}\right)_{1}^{2} & \left(A^{-1}\right)_{2}^{2}\end{bmatrix}\begin{bmatrix}T_{2}^{1r}\\
+T_{2}^{2r}
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{-\sin\theta}{r} & \frac{\cos\theta}{r}\end{bmatrix}\begin{bmatrix}-\sin\theta\\
+\cos\theta
+\end{bmatrix}\\
+ & =\frac{1}{r}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{22}^{2} & =\left(A^{-1}\right)_{1}^{2}\left(A_{2}^{1}\frac{\partial}{\partial x_{1}}\left(A_{2}^{1}\right)+A_{2}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{2}\left(A_{2}^{1}\frac{\partial}{\partial x_{1}}\left(A_{2}^{2}\right)+A_{2}^{2}\frac{\partial}{\partial x_{2}}\left(A_{2}^{2}\right)\right)\\
+ & =\left(A^{-1}\right)_{1}^{2}\left(\frac{\partial}{\partial\theta}\left(A_{2}^{1}\right)\right)+\left(A^{-1}\right)_{2}^{2}\left(\frac{\partial}{\partial\theta}\left(A_{2}^{2}\right)\right)\\
+ & =\begin{bmatrix}\left(A^{-1}\right)_{1}^{2} & \left(A^{-1}\right)_{2}^{2}\end{bmatrix}\begin{bmatrix}T_{2}^{1\theta}\\
+J_{2}^{2\theta}
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{-\sin\theta}{r} & \frac{\cos\theta}{r}\end{bmatrix}\begin{bmatrix}-r\cos\theta\\
+-r\sin\theta
+\end{bmatrix}\\
+ & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
